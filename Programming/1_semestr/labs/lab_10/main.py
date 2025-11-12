@@ -7,6 +7,7 @@
 import sorter
 from table import print_table
 from is_numeric import is_int
+import chart
 
 
 def main():
@@ -45,6 +46,9 @@ def main():
 
         # Инициализация словаря с результатами работы
         result = {}
+        result['n1'] = n1
+        result['n2'] = n2
+        result['n3'] = n3
 
         # Проведение тестов и запись результатов
         result['t1'], result['k1'] = sorter.heapsort_sorted(n1)
@@ -59,7 +63,28 @@ def main():
         result['t6'], result['k6'] = sorter.heapsort_random(n3)
         result['t9'], result['k9'] = sorter.heapsort_reverse_sorted(n3)
 
+        # Вывод таблицы результатов
         print_table(result)
+
+        # Ввод n1,n2
+        ns = input(
+            'Введите 2 числа n1,n2 для построения графика зависимости времени сортировки от размерности массива: ').split()
+        if len(ns) != 2:
+            print(f'Вы ввели {len(ns)} чисел, необходимо ввести 2.')
+            continue
+        else:
+            if is_int(ns):
+                n1, n2 = list(map(int, ns))
+                if n1 > 0 and n2 > n1:
+                    pass
+                else:
+                    print('Value Error')
+                    continue
+            else:
+                continue
+
+        # Построение графика
+        chart.print_chart(n1, n2)
 
 
 if __name__ == '__main__':

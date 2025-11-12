@@ -49,9 +49,9 @@ def heapsort_random(n):
     global cnt
     cnt = 0
     arr = [randint(-10**7, 10 ** 8) for _ in range(n)]
-    start = time.time()
+    start = time.perf_counter()
     heapsort(arr)
-    end = time.time()
+    end = time.perf_counter()
     # print(end - start)
     return end - start, cnt
 
@@ -63,9 +63,9 @@ def heapsort_sorted(n):
     global cnt
     cnt = 0
     arr = [i for i in range(1, n + 1)]
-    start = time.time()
+    start = time.perf_counter()
     heapsort(arr)
-    end = time.time()
+    end = time.perf_counter()
     # print(end-start)
     return end - start, cnt
 
@@ -77,8 +77,8 @@ def heapsort_reverse_sorted(n):
     global cnt
     cnt = 0
     arr = [i for i in range(n, 0, -1)]
-    start = time.time()
+    start = time.perf_counter()
     heapsort(arr)
-    end = time.time()
+    end = time.perf_counter()
     # print(end-start)
     return end - start, cnt
