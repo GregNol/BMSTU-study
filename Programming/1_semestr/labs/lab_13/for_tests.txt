@@ -1,0 +1,39 @@
+select C:\Users\Admin\Мои проекты\BMSTU-study\Programming\1_semestr\labs\lab_13\test.csv
+print_table
+find_one name Anna
+find_one age 25
+find_two id 3 name Bob
+append 101,Maria,28,45000.25
+sort_one age
+print_table
+sort_two name age
+print_table
+exit
+
+
+create C:\Users\Admin\Мои проекты\BMSTU-study\Programming\1_semestr\labs\lab_13\new_test.csv
+id,name,age,salary
+append 1,Olga,30,50000
+append 2,Igor,35,60000.5
+append 3,Sergey,22,30000
+print_table
+sort_one age
+print_table
+sort_two name age
+print_table
+find_one name Igor
+find_two id 3 name Sergey
+exit
+
+
+select Programming\1_semestr\labs\lab_13\test.csv
+print_table
+find_one name Anna
+find_one age 25
+find_two id 3 name Bob
+append 101,Maria,28,45000.25
+sort_one age
+print_table
+sort_two name age
+print_table
+exit
