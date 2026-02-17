@@ -6,6 +6,7 @@
 import os
 import struct
 try:
+    # Ввод пути
     while True:
         path = input('Введите путь до файла: ')
         if os.path.isdir(path):
@@ -14,6 +15,8 @@ try:
         break
     if os.path.isfile(path):
         os.remove(path)
+
+    # Запись данных
     print('Введите целочисленные 32-битные в разных строках, для окончания ввода введите пустую строку: ')
     file = open(path, 'wb')
     n = input()
@@ -23,8 +26,9 @@ try:
         n = input()
     file.close()
 
+    # Удаление положительных файлов
     file = open(path, 'r+b')
-    n_size = struct.calcsize('i')
+    n_size = struct.calcsize('i') + 1
     n = file.read(n_size)
     i = 0
     delta = 0
@@ -42,6 +46,7 @@ try:
     file.truncate((i - delta) * n_size)
     file.close()
 
+    # Вывод результатов
     print('Итоговый файл:')
     file = open(path, 'rb')
     n = file.read(n_size)

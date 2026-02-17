@@ -6,6 +6,7 @@
 import os
 import struct
 try:
+    # Ввод пути
     while True:
         path = input('Введите путь до файла: ')
         if os.path.isdir(path):
@@ -14,6 +15,8 @@ try:
         break
     if os.path.isfile(path):
         os.remove(path)
+
+    # Запись данных
     print('Введите целочисленные 32-битные в разных строках, для окончания ввода введите пустую строку: ')
     file = open(path, 'wb')
     n = input()
@@ -35,7 +38,7 @@ try:
             if n < 0:
                 neg_count += 1
 
-    # Подсчет нового размера размера
+    # Подсчет нового размера
     original_size = os.path.getsize(path)
     new_size = original_size + neg_count * n_size
 
@@ -73,6 +76,7 @@ try:
 
             read_pos -= n_size
 
+    # Вывод результатов
     print('Итоговый файл:')
     file = open(path, 'rb')
     n = file.read(n_size)

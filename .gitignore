@@ -209,3 +209,4 @@ __marimo__/
 
 # BOT_TOKEN and DB_URL
 .env
+*.bin

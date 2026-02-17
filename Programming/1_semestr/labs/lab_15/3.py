@@ -7,18 +7,18 @@ import os
 import struct
 
 try:
+    # Ввод пути
     while True:
         path = input('Введите путь до файла: ')
         if os.path.isdir(path):
             print('Путь некорректен.')
             continue
         break
-
     if os.path.isfile(path):
         os.remove(path)
 
+    # Запись данных
     print('Введите целочисленные 32-битные числа, для окончания ввода введите пустую строку: ')
-
     with open(path, 'wb') as file:
         while True:
             n_input = input()
@@ -44,22 +44,22 @@ try:
                     byte_data1 = file.read(n_size)
                     byte_data2 = file.read(n_size)
 
-                    val1 = struct.unpack('i', byte_data1)[0]
-                    val2 = struct.unpack('i', byte_data2)[0]
+                    n1 = struct.unpack('i', byte_data1)[0]
+                    n2 = struct.unpack('i', byte_data2)[0]
 
                     # Если левый больше правого — меняем их местами в файле
-                    if val1 > val2:
+                    if n1 > n2:
                         # Возвращаемся к началу пары
                         file.seek(j * n_size)
                         # Записываем их в обратном порядке
-                        file.write(struct.pack('i', val2))
-                        file.write(struct.pack('i', val1))
+                        file.write(struct.pack('i', n2))
+                        file.write(struct.pack('i', n1))
                         swapped = True
 
                 # Если за проход не было ни одной перестановки, файл отсортирован
                 if not swapped:
                     break
-
+    # Вывод результатов
     print('Итоговый файл:')
     with open(path, 'rb') as file:
         while True:
