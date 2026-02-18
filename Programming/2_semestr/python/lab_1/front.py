@@ -216,7 +216,7 @@ class CalculatorApp:
 
                 result = integer_base7 + '.' + fractional_base7
             else:
-                number = int(num_str)
+                number = num_str
                 result = int_to_base7(number)
 
             self.base_output_value.set(result)
@@ -239,7 +239,9 @@ class CalculatorApp:
                 mbox.showerror(
                     "Ошибка", "Число содержит недопустимые символы!")
                 return
-
+            if (num_str.count('-') > 1) or (num_str[0] != '-' and num_str.count('-') == 1):
+                mbox.showerror("Ошибка", "Введите корректное число!")
+                return
             if '.' in num_str:
                 if num_str.count('.') > 1 or num_str[0] == '.':
                     mbox.showerror('Ошибка', 'Число введено в некорректном формате.')
